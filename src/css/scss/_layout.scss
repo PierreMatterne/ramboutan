@@ -1,0 +1,6 @@
+body {
+	display: grid;
+	grid-template-rows: auto 100px; // main, footer
+	grid-gap:0;
+}
+
