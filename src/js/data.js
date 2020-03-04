@@ -4,14 +4,20 @@
 
 const albums = [
 {
+	id: 1,
 	name : "Mechanical creatures",
-	sortedBy : "date"
+	sortedBy : "date",
+	photoDisplay : '030515-1_img.png'
 },{
+	id: 2,
 	name : "Space",
-	sortedBy : "name"
+	sortedBy : "name",
+	photoDisplay : '050517-1_img.png'
 },{
+	id: 3,
 	name : "Utils",
-	sortedBy : "name"
+	sortedBy : "name",
+	photoDisplay : 'schema.jpg'
 }
 ];
 
