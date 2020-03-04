@@ -2,15 +2,12 @@
 
 
 // COMPONENTS
+/*
 Vue.component('name-of-it',{
 	props: ['todo'],
 	template: '<li>Loriste {{todo.text}}</li>'
 });
-
-
-
-
-
+*/
 
 
 
@@ -37,13 +34,15 @@ var app = new Vue({
 		},
 
 		openAlbum : function(aName){
-			this.message = "J'ouvre l'album " + aName;
-			this.currentPage = "album";
+			this.currentPage = "photos";
 			this.currentAlbum = aName;
 		},
 
+		getBackToAlbums : function(){
+			this.currentPage = "albums";
+		},
+
 		openPhoto : function(anId){
-			this.message = "J'affiche la photo " + anId;
 			document.getElementById('mask').classList.add('active');
 			// Remplaçable par un v-if ou v-show ? avec transition ?
 			this.currentPhotoUrl = getUrlFromId(anId) ;

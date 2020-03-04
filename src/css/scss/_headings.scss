@@ -1,34 +1,11 @@
 // Le H1 se trouve dans le HEADER et sert de titre
-h1 {
-	text-align: center;
-	font-size:2em;
-	line-height:2em;
-}
+h1 {}
 
-// Le h2 début chaque article.
-// C'est le titre de la page "single"
 h2 {
-	font-size:1.8em;
-	text-align: center;
-	padding:$space_m 0 $space_s;
-	border-bottom:1px solid #0cf;
-	margin-bottom:$space_m;
+	margin-bottom:$space_l;
 }
 
-// hack pour le smoothscroll
-h2 {
-	position: relative;
-	span {
-		position: absolute;
-		top:-330px;
-	}
-}
-
-// les h3 et suivants se trouvent dans le corps d'un texte.
-h3 {
-	font-size:1.5em;
-	margin:$space_l 0 $space_m;
-}
+h3 {}
 
 h4 {}
 

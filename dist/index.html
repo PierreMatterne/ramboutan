@@ -13,57 +13,55 @@
 	
 <header v-bind:class="currentTheme">
 
-
-
-	<div id="backButton">◄</div>
+	<div id="backButton" v-on:click="getBackToAlbums">◄</div>
 	<h1 id="title">Ramboutan</h1>
+
+
+
 	<div id="themeButton">
 		<div onclick="app.setThemeRight('themeExtraLight')">Extra Light</div>
 		<div onclick="app.setThemeRight('themeLight')">Light</div>
 		<div onclick="app.setThemeRight('themeDark')">Dark</div>
 		<div onclick="app.setThemeRight('themeExtraDark')">Extra Dark</div>
 	</div>
+	
 
 </header>
 	<main v-bind:class="currentTheme">
 		
 
-		Lorem
-
-		<div class="breadcrumb">Page : {{currentPage}}</div>
-
-		<div id="albumsList">
-
-			<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)">				
-				{{album.name}}
+		<div id="pageAlbum" v-if="currentPage === 'albums'">
+			<h2>Albums</h2>
+			<div id="albumsList">
+				<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)">				
+					{{album.name}}
+				</div>
 			</div>
-
 		</div>
 
-		<div class="breadcrumb">Album {{currentAlbum}}</div>
-
-		<div id="albumContent">
-			
-			<div class="photo" v-for="(photo, index) in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center','background-size': 'cover' }">
-				<span class="photoName">{{photo.name}}</span>
+		<div id="pagePhotos" v-if="currentPage === 'photos'">
+			<h2>Album : {{currentAlbum}}</h2>
+			<div id="albumContent">
+				<div class="photo" v-for="(photo, index) in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center','background-size': 'cover' }">
+					<span class="photoName">{{photo.name}}</span>
+				</div>
 			</div>
-
 		</div>
+
+		<hr>
 
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-bind:style="getBackground"></div>
 		</div>
 
-		{{ message }}
 
 
 
 
 
-
-
-</main>
-<footer v-bind:class="currentTheme">
+		
+	</main>
+	<footer v-bind:class="currentTheme">
 	Ramboutan : un exercice
 </footer>
 </div>

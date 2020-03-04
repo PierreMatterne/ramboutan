@@ -1,15 +1,17 @@
 
 <header v-bind:class="currentTheme">
 
-
-
-	<div id="backButton">◄</div>
+	<div id="backButton" v-on:click="getBackToAlbums">◄</div>
 	<h1 id="title">Ramboutan</h1>
+
+
+
 	<div id="themeButton">
 		<div onclick="app.setThemeRight('themeExtraLight')">Extra Light</div>
 		<div onclick="app.setThemeRight('themeLight')">Light</div>
 		<div onclick="app.setThemeRight('themeDark')">Dark</div>
 		<div onclick="app.setThemeRight('themeExtraDark')">Extra Dark</div>
 	</div>
+	
 
 </header>
