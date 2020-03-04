@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>TITRE</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="js/data.min.js"></script>
+	<script src="js/vendors/vue.min.js"></script>
+</head>
+<body>
+	<header>
+HEADER
+	</header>
+<main>
+	
+
+	Lorem
+
+	<div id="app">
+
+
+		<div class="breadcrumb">Page : {{currentPage}}</div>
+
+
+
+		<div id="albumsList">
+
+			<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)">				
+				{{album.name}}
+			</div>
+
+		</div>
+
+
+
+		<div class="breadcrumb">Album {{currentAlbum}}</div>
+
+
+
+		<div id="albumContent">
+			
+			<div class="photo" v-for="(photo, index) in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center','background-size': 'cover' }">
+				<span class="photoName">{{photo.name}}</span>
+			</div>
+
+		</div>
+
+
+		<div id="mask" v-on:click="unMask">
+			<div id="photoDisplay" v-bind:style="{ 'background': 'url(' + currentPhotoUrl + ') no-repeat center','background-size': 'contain' }"></div>
+		</div>
+		
+
+
+
+
+
+		<hr>
+
+
+
+		{{ message }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</main>
+<footer>FOOTER</footer>
+<script src="js/main.min.js"></script>
+</body>
+</html>

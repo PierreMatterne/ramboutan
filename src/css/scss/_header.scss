@@ -1,1 +1,11 @@
-header {}
+header {
+	background: #fc0;
+	position: fixed;
+	height:100px;
+	width:100%;
+}
+
+// compensation for the header height
+main {
+	margin-top:100px;
+}

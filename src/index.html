@@ -3,11 +3,75 @@
 <main>
 	<!-- ========================================== -->
 
-	
+	Lorem
+
+	<div id="app">
+
+
+		<div class="breadcrumb">Page : {{currentPage}}</div>
 
 
 
-	<!-- ========================================== -->
+		<div id="albumsList">
+
+			<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)">				
+				{{album.name}}
+			</div>
+
+		</div>
+
+
+
+		<div class="breadcrumb">Album {{currentAlbum}}</div>
+
+
+
+		<div id="albumContent">
+			
+			<div class="photo" v-for="(photo, index) in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center','background-size': 'cover' }">
+				<span class="photoName">{{photo.name}}</span>
+			</div>
+
+		</div>
+
+
+		<div id="mask" v-on:click="unMask">
+			<div id="photoDisplay" v-bind:style="{ 'background': 'url(' + currentPhotoUrl + ') no-repeat center','background-size': 'contain' }"></div>
+		</div>
+		
+
+
+
+
+
+		<hr>
+
+
+
+		{{ message }}
+
+
+
+
+
+
+
+
+
+
+<!-- 		
+	<name-of-it v-for="album in albums" v-bind:todo="album.name" v-bind:key="album.name">Ceci devrait être remplacé</name-of-it> 
+-->
+
+
+
+
+
+</div>
+
+
+
+<!-- ========================================== -->
 </main>
 @@include('inc.footer.html')
 @@include('inc.end.html')

@@ -2,16 +2,16 @@
 h1 {
 	text-align: center;
 	font-size:2em;
-	line-height:$headerHeight;
+	line-height:2em;
 }
 
 // Le h2 début chaque article.
 // C'est le titre de la page "single"
 h2 {
-	font-size:$h2_size;
+	font-size:1.8em;
 	text-align: center;
 	padding:$space_m 0 $space_s;
-	border-bottom:1px solid $c_ciel;
+	border-bottom:1px solid #0cf;
 	margin-bottom:$space_m;
 }
 
@@ -26,7 +26,7 @@ h2 {
 
 // les h3 et suivants se trouvent dans le corps d'un texte.
 h3 {
-	font-size:$h3_size;
+	font-size:1.5em;
 	margin:$space_l 0 $space_m;
 }
 
