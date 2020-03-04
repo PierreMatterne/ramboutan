@@ -1,7 +1,8 @@
 
 <header v-bind:class="currentTheme">
-
-	<div id="backButton" v-on:click="getBackToAlbums">◄</div>
+	<transition name="slide-fade">
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage === 'pagePhotos'">◄</div>
+	</transition>
 	<h1 id="title">Ramboutan</h1>
 
 
@@ -9,7 +10,6 @@
 	<div id="themeButton" v-on:click="openModalTheme()">
 
 		T
-
 		
 		<transition name="slide-fade">
 			<div id="modalTheme" v-show="modalThemeOpened===true">
@@ -21,7 +21,6 @@
 				<div v-on:click.stop="setThemeRight('themeExtraDark')">Extra Dark</div>
 			</div>
 		</transition>
-
 
 	</div>
 

@@ -1,22 +1,13 @@
 /* jshint esversion: 6 */
 
 
-// COMPONENTS
-/*
-Vue.component('name-of-it',{
-	props: ['todo'],
-	template: '<li>Loriste {{todo.text}}</li>'
-});
-*/
-
-
 
 
 var app = new Vue({
 	el: '#app',
 	data: {
 		message: 'You loaded this page on ' + new Date().toLocaleString(),
-		currentPage : "albums",
+		currentPage : "pageAlbums",
 		currentAlbum : "xyz",
 		maskActive : false,
 		currentPhotoUrl : '',
@@ -36,12 +27,12 @@ var app = new Vue({
 		},
 
 		openAlbum : function(aName){
-			this.currentPage = "photos";
+			this.currentPage = "pagePhotos";
 			this.currentAlbum = aName;
 		},
 
 		getBackToAlbums : function(){
-			this.currentPage = "albums";
+			this.currentPage = "pageAlbums";
 		},
 
 		openPhoto : function(anId){
@@ -63,7 +54,10 @@ var app = new Vue({
 	computed: {
 		getBackground(){
 			return 'background: url('+this.currentPhotoUrl+') no-repeat center/contain;';
-		}
+		},
+		nbrAlbums(){
+			return this.albums.length;
+		}		
 	}
 
 }); 

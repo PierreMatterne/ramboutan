@@ -1,19 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	
-	<title>TITRE</title>
+	<meta name="description" content="Exercice de création d'une interface de gestion d'image." />
+	<meta name="author" content="Pierre Matterne">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ramboutan</title>
 	<link rel="stylesheet" href="./css/style.css">
 	<script src="js/data.min.js"></script>
 	<script src="js/vendors/vue.min.js"></script>
 </head>
+
 <body>
 <div id="app">
 	
 <header v-bind:class="currentTheme">
-
-	<div id="backButton" v-on:click="getBackToAlbums">◄</div>
+	<transition name="slide-fade">
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage === 'pagePhotos'">◄</div>
+	</transition>
 	<h1 id="title">Ramboutan</h1>
 
 
@@ -21,7 +27,6 @@
 	<div id="themeButton" v-on:click="openModalTheme()">
 
 		T
-
 		
 		<transition name="slide-fade">
 			<div id="modalTheme" v-show="modalThemeOpened===true">
@@ -34,7 +39,6 @@
 			</div>
 		</transition>
 
-
 	</div>
 
 
@@ -44,8 +48,8 @@
 	<main v-bind:class="currentTheme">
 		
 
-		<div id="pageAlbum" v-if="currentPage === 'albums'">
-			<h2>Albums</h2>
+		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
+			<h2>{{nbrAlbums}} Albums</h2>
 			<div id="albumsList">
 				<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)">				
 					{{album.name}}
@@ -53,7 +57,7 @@
 			</div>
 		</div>
 
-		<div id="pagePhotos" v-if="currentPage === 'photos'">
+		<div id="pagePhotos" v-if="currentPage === 'pagePhotos'">
 			<h2>Album : {{currentAlbum}}</h2>
 			<div id="albumContent">
 				<div class="photo" v-for="(photo, index) in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center','background-size': 'cover' }">
@@ -61,8 +65,6 @@
 				</div>
 			</div>
 		</div>
-
-		<hr>
 
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-bind:style="getBackground"></div>
