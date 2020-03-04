@@ -22,7 +22,7 @@ var app = new Vue({
 		currentPage : "albums",
 		currentAlbum : "xyz",
 		maskActive : false,
-		currentPhotoUrl : 'medias/schema.jpg' 
+		currentPhotoUrl : '' 
 	},
 
 	created(){
@@ -47,6 +47,12 @@ var app = new Vue({
 
 		unMask : function(){
 			document.getElementById('mask').classList.remove('active');
+		}
+	},
+
+	computed: {
+		getBackground(){
+			return 'background: url('+this.currentPhotoUrl+') no-repeat center/contain;';
 		}
 	}
 

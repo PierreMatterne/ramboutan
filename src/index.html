@@ -36,9 +36,9 @@
 
 
 		<div id="mask" v-on:click="unMask">
-			<div id="photoDisplay" v-bind:style="{ 'background': 'url(' + currentPhotoUrl + ') no-repeat center','background-size': 'contain' }"></div>
+			<div id="photoDisplay" v-bind:style="getBackground"></div>
 		</div>
-		
+
 
 
 
