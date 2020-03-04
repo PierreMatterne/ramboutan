@@ -1,16 +1,12 @@
 @@include('inc.start.html')
-@@include('inc.header.html')
-<main>
-	<!-- ========================================== -->
+<div id="app">
+	@@include('inc.header.html')
+	<main v-bind:class="currentTheme">
+		<!-- ========================================== -->
 
-	Lorem
-
-	<div id="app">
-
+		Lorem
 
 		<div class="breadcrumb">Page : {{currentPage}}</div>
-
-
 
 		<div id="albumsList">
 
@@ -20,11 +16,7 @@
 
 		</div>
 
-
-
 		<div class="breadcrumb">Album {{currentAlbum}}</div>
-
-
 
 		<div id="albumContent">
 			
@@ -34,19 +26,9 @@
 
 		</div>
 
-
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-bind:style="getBackground"></div>
 		</div>
-
-
-
-
-
-
-		<hr>
-
-
 
 		{{ message }}
 
@@ -55,23 +37,8 @@
 
 
 
-
-
-
-
-<!-- 		
-	<name-of-it v-for="album in albums" v-bind:todo="album.name" v-bind:key="album.name">Ceci devrait être remplacé</name-of-it> 
--->
-
-
-
-
-
-</div>
-
-
-
 <!-- ========================================== -->
 </main>
 @@include('inc.footer.html')
+</div>
 @@include('inc.end.html')

@@ -22,7 +22,8 @@ var app = new Vue({
 		currentPage : "albums",
 		currentAlbum : "xyz",
 		maskActive : false,
-		currentPhotoUrl : '' 
+		currentPhotoUrl : '',
+		currentTheme : 'themeLight'
 	},
 
 	created(){
@@ -31,6 +32,10 @@ var app = new Vue({
 	},
 
 	methods: {
+		setThemeRight: function(theme){
+			this.currentTheme = theme;
+		},
+
 		openAlbum : function(aName){
 			this.message = "J'ouvre l'album " + aName;
 			this.currentPage = "album";
@@ -66,4 +71,5 @@ function getUrlFromId(id){
 		if (photo.id === id){ return 'medias/' + photo.filename;}
 	}
 	return '';
-};
+}
+

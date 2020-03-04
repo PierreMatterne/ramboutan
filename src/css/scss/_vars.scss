@@ -1,7 +1,43 @@
 // COLORS
 $c_white : hsl(0,0%,100%);
-$c_grey_90: hsl(0,0%,90%);
-$c_grey_70: hsl(0,0%,70%);
+$c_grey_90 : hsl(0,0%,90%);;
+
+// SPECIFIC GREYS
+$grey_0 : #efefef;
+$grey_1 : #d6d6d6;
+$grey_2 : #b8b8b8;
+$grey_3 : #9c9c9c;
+$grey_4 : #8a8a8a;
+$grey_5 : #535353;
+$grey_6 : #454545;
+$grey_7 : #3a3a3a;
+$grey_8 : #343434;
+$grey_9 : #272727;
+
+
+// THEMES for HEADER and FOOTER
+$themeExtraLight_bg : $grey_1;
+$themeExtraLight_text : $grey_6;
+$themeLight_bg : $grey_2;
+$themeLight_text : $grey_7;
+$themeDark_bg : $grey_5;
+$themeDark_text : $grey_3;
+$themeExtraDark_bg : $grey_8;
+$themeExtraDark_text : $grey_4;
+
+// THEMES for MAIN
+$mainThemeExtraLight_bg : $grey_0;
+$mainThemeExtraLight_text : $grey_6;
+$mainThemeLight_bg : $grey_1;
+$mainThemeLight_text : $grey_7;
+$mainThemeDark_bg : $grey_2;
+$mainThemeDark_text : $grey_6;
+$mainThemeExtraDark_bg : $grey_3;
+$mainThemeExtraDark_text : $grey_7;
+
+$footer_bg : #0cf;
+$footer_text : #0fc;
+
 
 
 // =======================================
@@ -16,6 +52,10 @@ $bodyBg : $c_grey_90;
 $headerColor : $c_white;
 
 // =======================================
+// SPECIFIC MESURMENTS
+$headerHeight : 50px;
+
+// =======================================
 // GENERIC MESURMENTS
 // "space" used for margin or padding
 // 1em = 16px (see reset.scss)
@@ -24,6 +64,8 @@ $space_l : 2em;
 $space_m : 1em;
 $space_s : 0.75em;
 $space_xs : 0.25em;
+
+
 
 
 

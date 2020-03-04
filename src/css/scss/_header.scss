@@ -1,11 +1,61 @@
 header {
-	background: #fc0;
 	position: fixed;
-	height:100px;
+	height:$headerHeight;
 	width:100%;
+}
+
+header, footer {
+
+	&.themeExtraLight {
+		background: $themeExtraLight_bg;
+		color: $themeExtraLight_text;
+	}
+	&.themeLight {
+		background: $themeLight_bg;
+		color: $themeLight_text;
+	}
+	&.themeDark {
+		background: $themeDark_bg;
+		color: $themeDark_text;
+	}
+	&.themeExtraDark {
+		background: $themeExtraDark_bg;
+		color: $themeExtraDark_text;
+	}
+
+}
+
+
+#backButton,
+#themeButton {
+	line-height:$headerHeight;
+	width:$headerHeight;
+	text-align: center;
+	font-size:1.5rem;
+	cursor: pointer;
+}
+
+#backButton {
+	position: absolute;
+	left:0; top:0;
+	height:100%;
+}
+
+#title {
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	font-size:1.5rem;
+}
+
+#themeButton {
+	position: absolute;
+	right:0; top:0;
+	height:100%;
 }
 
 // compensation for the header height
 main {
-	margin-top:100px;
+	margin-top:$headerHeight;
 }

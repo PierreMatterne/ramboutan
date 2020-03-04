@@ -1,3 +1,7 @@
 footer {
-	background: #666;
+	background: $footer_bg;
+	color: $footer_text;
+	text-align: center;
+	font-size:0.8rem;
+	line-height:1.25rem;
 }

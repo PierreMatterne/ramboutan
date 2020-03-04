@@ -1,7 +1,27 @@
-body {
+#app {
+	height:100%;
 	display: grid;
-	grid-template-rows: auto 100px; // main, footer
+	grid-template-rows: auto 20px; // main, footer
 	grid-gap:0;
 }
 
+main {
 
+	&.themeExtraLight {
+		background: $mainThemeExtraLight_bg;
+		color: $mainThemeExtraLight_text;
+	}
+	&.themeLight {
+		background: $mainThemeLight_bg;
+		color: $mainThemeLight_text;
+	}
+	&.themeDark {
+		background: $mainThemeDark_bg;
+		color: $mainThemeDark_text;
+	}
+	&.themeExtraDark {
+		background: $mainThemeExtraDark_bg;
+		color: $mainThemeExtraDark_text;
+	}
+
+}

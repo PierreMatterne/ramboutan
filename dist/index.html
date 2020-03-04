@@ -9,20 +9,28 @@
 	<script src="js/vendors/vue.min.js"></script>
 </head>
 <body>
-	<header>
-HEADER
-	</header>
-<main>
+<div id="app">
 	
+<header v-bind:class="currentTheme">
 
-	Lorem
 
-	<div id="app">
 
+	<div id="backButton">◄</div>
+	<h1 id="title">Ramboutan</h1>
+	<div id="themeButton">
+		<div onclick="app.setThemeRight('themeExtraLight')">Extra Light</div>
+		<div onclick="app.setThemeRight('themeLight')">Light</div>
+		<div onclick="app.setThemeRight('themeDark')">Dark</div>
+		<div onclick="app.setThemeRight('themeExtraDark')">Extra Dark</div>
+	</div>
+
+</header>
+	<main v-bind:class="currentTheme">
+		
+
+		Lorem
 
 		<div class="breadcrumb">Page : {{currentPage}}</div>
-
-
 
 		<div id="albumsList">
 
@@ -32,11 +40,7 @@ HEADER
 
 		</div>
 
-
-
 		<div class="breadcrumb">Album {{currentAlbum}}</div>
-
-
 
 		<div id="albumContent">
 			
@@ -46,19 +50,9 @@ HEADER
 
 		</div>
 
-
 		<div id="mask" v-on:click="unMask">
-			<div id="photoDisplay" v-bind:style="{ 'background': 'url(' + currentPhotoUrl + ') no-repeat center','background-size': 'contain' }"></div>
+			<div id="photoDisplay" v-bind:style="getBackground"></div>
 		</div>
-		
-
-
-
-
-
-		<hr>
-
-
 
 		{{ message }}
 
@@ -68,22 +62,11 @@ HEADER
 
 
 
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
 </main>
-<footer>FOOTER</footer>
+<footer v-bind:class="currentTheme">
+	Ramboutan : un exercice
+</footer>
+</div>
 <script src="js/main.min.js"></script>
 </body>
 </html>
