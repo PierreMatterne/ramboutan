@@ -18,13 +18,27 @@
 
 
 
-	<div id="themeButton">
-		<div onclick="app.setThemeRight('themeExtraLight')">Extra Light</div>
-		<div onclick="app.setThemeRight('themeLight')">Light</div>
-		<div onclick="app.setThemeRight('themeDark')">Dark</div>
-		<div onclick="app.setThemeRight('themeExtraDark')">Extra Dark</div>
+	<div id="themeButton" v-on:click="openModalTheme()">
+
+		T
+
+		
+		<transition name="slide-fade">
+			<div id="modalTheme" v-show="modalThemeOpened===true">
+				<div class="modalTitle">Theme</div>
+				
+				<div v-on:click.stop="setThemeRight('themeExtraLight')">Extra Light</div>
+				<div v-on:click.stop="setThemeRight('themeLight')">Light</div>
+				<div v-on:click.stop="setThemeRight('themeDark')">Dark</div>
+				<div v-on:click.stop="setThemeRight('themeExtraDark')">Extra Dark</div>
+			</div>
+		</transition>
+
+
 	</div>
-	
+
+
+
 
 </header>
 	<main v-bind:class="currentTheme">

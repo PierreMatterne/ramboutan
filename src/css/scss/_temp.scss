@@ -1,2 +1,36 @@
 
 
+#modalTheme {
+	position: absolute;
+	top:10px; right:10px;
+	font-size:1rem;
+	display: grid;
+	grid-template-rows: repeat(5, 1fr);
+	width:200px; height:250px;
+	background: #ccc;
+	border-radius:4px;
+	color:#000;
+	border:1px solid #000;
+}
+
+.modalTitle {
+	border-bottom:1px solid #000;
+}
+
+
+
+
+
+// TRANSITION slide-fade for VUE
+
+.slide-fade-enter-active {
+	transition: all .3s ease;
+}
+.slide-fade-leave-active {
+	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+{
+	transform: translateX(10px);
+	opacity: 0;
+}

@@ -20,7 +20,8 @@ var app = new Vue({
 		currentAlbum : "xyz",
 		maskActive : false,
 		currentPhotoUrl : '',
-		currentTheme : 'themeLight'
+		currentTheme : 'themeLight',
+		modalThemeOpened: false
 	},
 
 	created(){
@@ -31,6 +32,7 @@ var app = new Vue({
 	methods: {
 		setThemeRight: function(theme){
 			this.currentTheme = theme;
+			this.modalThemeOpened = false;
 		},
 
 		openAlbum : function(aName){
@@ -51,6 +53,10 @@ var app = new Vue({
 
 		unMask : function(){
 			document.getElementById('mask').classList.remove('active');
+		},
+
+		openModalTheme : function(){
+			this.modalThemeOpened = true;
 		}
 	},
 
