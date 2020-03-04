@@ -12,7 +12,9 @@ var app = new Vue({
 		maskActive : false,
 		currentPhotoUrl : '',
 		currentTheme : 'themeLight',
-		modalThemeOpened: false
+		modalThemeOpened: false,
+		displayInfoPanel: false,
+		currentPhotoInfos: {}
 	},
 
 	created(){
@@ -39,11 +41,22 @@ var app = new Vue({
 			document.getElementById('mask').classList.add('active');
 			// Remplaçable par un v-if ou v-show ? avec transition ?
 			this.currentPhotoUrl = getUrlFromId(anId) ;
+			let	width = window.innerWidth || document.body.clientWidth;
+			let height = window.innerHeight || document.body.clientHeight;
+
+			console.log(width , height);
+
+			document.getElementById('thePicture').style.maxWidth=width-30 + 'px';
+			document.getElementById('thePicture').style.maxHeight=height-200 + 'px';
+
+			this.currentPhotoInfos = getAllinfos(anId);
 
 		},
 
 		unMask : function(){
 			document.getElementById('mask').classList.remove('active');
+			// Remplacer la ligne ci-dessus par un v-show + animation.
+			this.displayInfoPanel = false;
 		},
 
 		openModalTheme : function(){
@@ -65,10 +78,13 @@ var app = new Vue({
 
 // Pourquoi sortir cette fonction ?
 function getUrlFromId(id){
-	console.log("ok");
 	for (let photo of app.photos){
 		if (photo.id === id){ return 'medias/' + photo.filename;}
 	}
-	return '';
 }
 
+function getAllinfos(id){
+	for (let photo of app.photos){
+		if (photo.id === id){ return photo;}
+	}
+}

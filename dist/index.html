@@ -50,18 +50,10 @@
 
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<h2>{{nbrAlbums}} Albums</h2>
-			
+
 			<div id="albumsList">
 				<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)" v-bind:style="{ 'background': 'url( medias/' + album.photoDisplay + ') no-repeat center/cover' }">		
-
-					
-
-
-					
-					{{album.name}}
-
-
-					
+					<span class="photoName">{{album.name}}</span>
 				</div>
 				
 
@@ -77,8 +69,29 @@
 			</div>
 		</div>
 
+
 		<div id="mask" v-on:click="unMask">
-			<div id="photoDisplay" v-bind:style="getBackground"></div>
+			<div id="photoDisplay" v-on:click.stop="">
+
+				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
+					
+					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
+					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
+					<span>Weight: </span><span>{{currentPhotoInfos.weight}}</span>
+					<span>Width: </span><span>{{currentPhotoInfos.width}}</span>
+					<span>Height: </span><span>{{currentPhotoInfos.height}}</span>
+					
+				</div>
+
+				<img id="thePicture" v-bind:src="currentPhotoUrl" />
+
+				<div class="pictureMenu">
+					<div class="pmInfos button" v-on:click="displayInfoPanel=!displayInfoPanel">Info</div>
+					<div class="pmActions">Actions</div>
+				</div>
+
+			</div>
+			
 		</div>
 
 
