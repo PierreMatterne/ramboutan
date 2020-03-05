@@ -1,9 +1,11 @@
 @@include('inc.start.html')
 <div id="app">
 	@@include('inc.header.html')
-	<main v-bind:class="currentTheme">
+	<main v-bind:class="currentTheme" v-on:click="modalThemeOpened = false">
 		<!-- ========================================== -->
 
+
+		<!-- ========== Page ALBUMS ========== -->
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<div class="titleBloc">
 				<h2>{{nbrAlbums}} Albums</h2>
@@ -15,6 +17,7 @@
 			</div>
 		</div>
 
+		<!-- ========== Page PHOTOS ========== -->
 		<div id="pagePhotos" v-if="currentPage === 'pagePhotos'">
 			<div class="titleBloc">
 				<h2>Album : {{currentAlbum}}</h2>
@@ -29,18 +32,33 @@
 			</div>
 		</div>
 
-
-		<div id="mask" v-on:click="unMask">
+		<!-- ========== Page PHOTO ========== -->
+		<div id="mask" v-on:click="unMask" v-bind:class="{active:isMaskActive}">
 			<div id="photoDisplay" v-on:click.stop="">
 
-				<!-- XXXX FAIRE UN JOLI PANNEAU -->
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
-					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
-					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
-					<span>Weight: </span><span>{{currentPhotoInfos.weight}}</span>
-					<span>Width: </span><span>{{currentPhotoInfos.width}}</span>
-					<span>Height: </span><span>{{currentPhotoInfos.height}}</span>
-					<i class="fas fa-times"></i>
+					
+					<div id="displayInfoPanelContent">
+						<h3>{{currentPhotoInfos.name}}</h3>
+
+						<hr>
+
+						<div id="blocPhotoInfos">
+							<div class="line">
+								<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
+							</div>
+							<div class="line">
+								<span>Weight: </span><span>{{currentPhotoInfos.weight}}Ko</span>
+							</div>
+							<div class="line">
+								<span>Width: </span><span>{{currentPhotoInfos.width}}px</span>
+							</div>
+							<div class="line">
+								<span>Height: </span><span>{{currentPhotoInfos.height}}px</span>
+							</div>
+						</div>
+						<!-- <i class="fas fa-times"></i> -->
+					</div>
 				</div>
 
 				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
@@ -52,26 +70,22 @@
 						<i class="far fa-folder-open" data-title="Download / Upload ?"></i>
 						<i class="fas fa-trash-alt" data-title="Delete this picture"></i>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
 
+
+		<!-- ========== Page ABOUT ========== -->
 		<div id="pageAbout" v-if="currentPage === 'pageAbout'">
 			<h2>À propos</h2>
 			<div class="mainText">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias necessitatibus, quos odio rem odit, voluptatem veritatis ipsam aliquam quia laudantium saepe! Praesentium quo enim expedita, nobis nesciunt, deserunt aliquam qui.
 			</div>
-			<!-- XXXX UNIQUE BOUTON A CHANGER -->
 			
 			<div class="button button-center" v-on:click="currentPage = 'pageAlbums'">Back to Albums</div>
-			
-
 		</div>
 
+		<!-- ========== If error, message ========== -->
 		<div id="errorMessage" v-if="isThereError === true">
 			<i class="far fa-frown"></i>
 			<p>{{errorMsg}}</p>

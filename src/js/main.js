@@ -10,9 +10,10 @@ var app = new Vue({
 		modalThemeOpened: false,
 		displayInfoPanel: false,
 		isThereError: false,
-		isButtonInfoActive:false,
-		isButtonDlActive:false,
-		isButtonDeleteActive:false,
+		isButtonInfoActive: false,
+		isButtonDlActive: false,
+		isButtonDeleteActive: false,
+		isMaskActive: false,
 		// String
 		currentPage: "pageAlbums",
 		currentAlbum: "",
@@ -37,7 +38,7 @@ var app = new Vue({
 		 */
 		 setThemeRight: function(theme){
 		 	this.currentTheme = theme;
-		 	this.modalThemeOpened = false;
+		 	// this.modalThemeOpened = false;
 		 },
 
 		/**
@@ -56,6 +57,7 @@ var app = new Vue({
  		getBackToAlbums: function(){
  			this.currentPage = "pageAlbums";
 			// désactiver les images ouvertes
+			this.currentPhotoInfos = {};
 		},
 
 		/**
@@ -64,27 +66,24 @@ var app = new Vue({
 		 * @param {integer}  anId  An identifier
 		 */
 		 openPhoto: function(anId){
-		 	document.getElementById('mask').classList.add('active');
-			// Remplaçable par un v-if ou v-show ? avec transition ?
-			// this.currentPhotoUrl = getUrlFromId(anId) ;
-			let	width = window.innerWidth || document.body.clientWidth;
-			let height = window.innerHeight || document.body.clientHeight;
+		 	this.isMaskActive = true;
 
-			document.getElementById('thePhoto').style.maxWidth=width-30 + 'px';
-			document.getElementById('thePhoto').style.maxHeight=height-200 + 'px';
+		 	let	width = window.innerWidth || document.body.clientWidth;
+		 	let height = window.innerHeight || document.body.clientHeight;
 
-			this.currentPhotoInfos = this.getAllinfos(anId);
+		 	document.getElementById('thePhoto').style.maxWidth=width-30 + 'px';
+		 	document.getElementById('thePhoto').style.maxHeight=height-200 + 'px';
 
-		},
+		 	this.currentPhotoInfos = this.getAllinfos(anId);
+		 },
 
 		/**
 		 * Remove the mask and close the displayed photo
 		 */
 		 unMask: function(){
-		 	document.getElementById('mask').classList.remove('active');
-			// Remplacer la ligne ci-dessus par un v-show + animation.
-			this.displayInfoPanel = false;
-		},
+		 	this.isMaskActive = false;
+		 	this.displayInfoPanel = false;
+		 },
 
 		/**
  		* Opens the modal to choose a theme.

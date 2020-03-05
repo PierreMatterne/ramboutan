@@ -1,12 +1,12 @@
 
 // ====================================================
-// TRANSITION slide-fade for VUE
+// TRANSITION slide-fade 
 // ====================================================
 .slide-fade-enter-active {
 	transition: all .3s ease-in-out;
 }
 .slide-fade-leave-active {
-	transition: all .3s ease-in-out;
+	// transition: all .3s ease-in-out;
 }
 .slide-fade-enter, .slide-fade-leave-to
 {
@@ -16,6 +16,18 @@
 
 
 
+
+
+
+
+
+#debuginfo {
+	position: absolute;
+	bottom:10px;
+	right:10px;
+	border:2px solid #f00;
+	padding:1em;
+}
 
 
 

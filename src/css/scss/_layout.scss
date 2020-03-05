@@ -8,6 +8,7 @@
 
 main {
 	padding: 1em;
+	transition: background $transition, color $transition;
 
 	&.themeExtraLight {
 		background: $mainThemeExtraLight_bg;

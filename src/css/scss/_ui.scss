@@ -2,3 +2,11 @@
 .invisibleButton {
 	cursor:pointer;
 }
+
+// Separator
+hr {
+	background: #fc0;
+	border:none;
+	margin: $space_m auto $space_l;
+	width:100%;
+}

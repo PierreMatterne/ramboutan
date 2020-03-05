@@ -45,51 +45,54 @@
 <body>
 <div id="app">
 	
-<header v-bind:class="currentTheme">
+	<header v-bind:class="currentTheme">
 
-	
-	<transition name="slide-fade">
-		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">
-			<i class="fas fa-arrow-left"></i>
-		</div>
-	</transition>
-
-	
-	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
-
-	
-	<div id="themeButton" v-on:click="openModalTheme()">
-		<i class="fas fa-cog"></i>
+		
 		<transition name="slide-fade">
-			<div class="modal" id="modalTheme" v-show="modalThemeOpened===true" v-bind:class="currentTheme">
-				<div class="modalTitle">Theme</div>		
-				<div v-on:click.stop="setThemeRight('themeExtraLight')">
-					<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
-				</div>
-				<div v-on:click.stop="setThemeRight('themeLight')">
-					<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
-				</div>
-				<div v-on:click.stop="setThemeRight('themeDark')">
-					<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
-				</div>
-				<div v-on:click.stop="setThemeRight('themeExtraDark')">
-					<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
-				</div>
+			<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">
+				<i class="fas fa-arrow-left"></i>
 			</div>
 		</transition>
-	</div>
+
+		
+		<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
+
+		
+		<div id="themeButton" v-on:click="openModalTheme()">
+			<i class="fas fa-cog"></i>
+			<transition name="slide-fade">
+				<div class="modal" id="modalTheme" v-show="modalThemeOpened===true" v-bind:class="currentTheme">
+					<div class="modalTitle">Theme</div>		
+					<div v-on:click.stop="setThemeRight('themeExtraLight')">
+						<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
+						<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
+					</div>
+					<div v-on:click.stop="setThemeRight('themeLight')">
+						<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
+						<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
+					</div>
+					<div v-on:click.stop="setThemeRight('themeDark')">
+						<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
+						<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
+					</div>
+					<div v-on:click.stop="setThemeRight('themeExtraDark')">
+						<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
+						<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
+					</div>
+				</div>
+			</transition>
+		</div>
 
 
 
 
-</header>
-	<main v-bind:class="currentTheme">
+	</header>
+
+	<main v-bind:class="currentTheme" v-on:click="modalThemeOpened = false">
 		
 
+
+		
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<div class="titleBloc">
 				<h2>{{nbrAlbums}} Albums</h2>
@@ -101,6 +104,7 @@
 			</div>
 		</div>
 
+		
 		<div id="pagePhotos" v-if="currentPage === 'pagePhotos'">
 			<div class="titleBloc">
 				<h2>Album : {{currentAlbum}}</h2>
@@ -115,18 +119,33 @@
 			</div>
 		</div>
 
-
-		<div id="mask" v-on:click="unMask">
+		
+		<div id="mask" v-on:click="unMask" v-bind:class="{active:isMaskActive}">
 			<div id="photoDisplay" v-on:click.stop="">
 
-				
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
-					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
-					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
-					<span>Weight: </span><span>{{currentPhotoInfos.weight}}</span>
-					<span>Width: </span><span>{{currentPhotoInfos.width}}</span>
-					<span>Height: </span><span>{{currentPhotoInfos.height}}</span>
-					<i class="fas fa-times"></i>
+					
+					<div id="displayInfoPanelContent">
+						<h3>{{currentPhotoInfos.name}}</h3>
+
+						<hr>
+
+						<div id="blocPhotoInfos">
+							<div class="line">
+								<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
+							</div>
+							<div class="line">
+								<span>Weight: </span><span>{{currentPhotoInfos.weight}}Ko</span>
+							</div>
+							<div class="line">
+								<span>Width: </span><span>{{currentPhotoInfos.width}}px</span>
+							</div>
+							<div class="line">
+								<span>Height: </span><span>{{currentPhotoInfos.height}}px</span>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 
 				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
@@ -138,26 +157,22 @@
 						<i class="far fa-folder-open" data-title="Download / Upload ?"></i>
 						<i class="fas fa-trash-alt" data-title="Delete this picture"></i>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
 
+
+		
 		<div id="pageAbout" v-if="currentPage === 'pageAbout'">
 			<h2>À propos</h2>
 			<div class="mainText">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias necessitatibus, quos odio rem odit, voluptatem veritatis ipsam aliquam quia laudantium saepe! Praesentium quo enim expedita, nobis nesciunt, deserunt aliquam qui.
 			</div>
 			
-			
 			<div class="button button-center" v-on:click="currentPage = 'pageAlbums'">Back to Albums</div>
-			
-
 		</div>
 
+		
 		<div id="errorMessage" v-if="isThereError === true">
 			<i class="far fa-frown"></i>
 			<p>{{errorMsg}}</p>
