@@ -4,7 +4,12 @@
 	display: grid;
 	grid-gap:$space_m;
 	grid-template-columns: repeat(auto-fill, minmax($photoWidth, 1fr));
-	justify-items: start;
+	@media screen and (max-width:500px){
+		justify-items: center;
+	}
+	@media screen and (min-width:500px){
+		justify-items: start;
+	}
 }
 
 .album,
@@ -28,15 +33,6 @@
 	color:#fff;
 	background: hsla(0,0,0,0.5);
 }
-
-
-
-
-
-
-
-
-
 
 
 
