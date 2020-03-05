@@ -37,7 +37,7 @@
 }
 
 // ====================================================
-// PHOTO : The mask that appears when photos are displayed
+// #mask that appears when photos are displayed
 // ====================================================
 
 #mask {
@@ -46,6 +46,7 @@
 	background: hsla(0,0,0,0.0);
 	pointer-events: none;
 	transition: background-color 0.3s ease-in-out;
+	z-index:400;
 }
 
 #mask.active {
@@ -53,10 +54,9 @@
 	pointer-events: auto;
 }
 
-
-
-
-
+// ====================================================
+// The #mask contains the photos and actions button
+// ====================================================
 
 #displayInfoPanel {
 	background: #999;
@@ -97,27 +97,48 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	position: absolute;
-	bottom:-2em;
+	bottom:-3.5em;
 	width:100%;
 }
 
+.pictureMenu i {
+	background: $iconTile;
+	font-size:1.75em;
+	width:1.75em;
+	line-height:1.75em;
+	text-align: center;
+	transition: background-color $transition;
+}
+
+.pictureMenu i:hover {
+	background: $iconTileHover;
+}
+
+
+// ==================================
+// Sert encore dans un seul cas : la page about.
+// // Utiliser plutôt background: $iconTile;
 .button {
 	border:1px solid #fff;
 	border-radius:4px;
 	cursor: pointer;
 	padding:$space_xs $space_m;
+	background: #f00;
 }
 
 .button-center {
 	display: inline-block;
 	margin:$space_l auto;
 }
+// ==================================
 
-.pmInfos {
+
+
+.icoRight {
 	justify-self:left;
 }
 
-.pmActions {
+.icoLeft {
 	justify-self:right;
 }
 

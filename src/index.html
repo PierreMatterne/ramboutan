@@ -44,12 +44,16 @@
 
 				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
 				<div class="pictureMenu">
-					<div class="pmInfos button" v-on:click="displayInfoPanel=!displayInfoPanel">Info</div>
-					<div class="pmActions">Actions</div>
 
-					<i class="fas fa-info"></i>
-					<i class="far fa-folder-open"></i>
-					<i class="fas fa-trash-alt"></i>
+					<i class="fas fa-info icoRight invisibleButton" v-on:click="displayInfoPanel=!displayInfoPanel"></i>
+
+					<div class="icoLeft">
+						<i class="far fa-folder-open "></i>
+						<i class="fas fa-trash-alt"></i>
+					</div>
+
+
+
 
 				</div>
 			</div>
