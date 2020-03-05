@@ -11,6 +11,24 @@
 	<link rel="stylesheet" href="./css/style.css">
 	<script src="js/data.min.js"></script>
 	<script src="js/vendors/vue.min.js"></script>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+	<link rel="manifest" href="favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -50,13 +68,10 @@
 
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<h2>{{nbrAlbums}} Albums</h2>
-
 			<div id="albumsList">
 				<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)" v-bind:style="{ 'background': 'url( medias/' + album.photoDisplay + ') no-repeat center/cover' }">		
 					<span class="photoName">{{album.name}}</span>
 				</div>
-				
-
 			</div>
 		</div>
 
@@ -69,29 +84,22 @@
 			</div>
 		</div>
 
-
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-on:click.stop="">
-
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
-					
 					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
 					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
 					<span>Weight: </span><span>{{currentPhotoInfos.weight}}</span>
 					<span>Width: </span><span>{{currentPhotoInfos.width}}</span>
 					<span>Height: </span><span>{{currentPhotoInfos.height}}</span>
-					
 				</div>
 
-				<img id="thePicture" v-bind:src="currentPhotoUrl" />
-
+				<img id="thePicture" v-bind:src="currentPhotoUrl" v-bind:alt="currentPhotoInfos.name" />
 				<div class="pictureMenu">
 					<div class="pmInfos button" v-on:click="displayInfoPanel=!displayInfoPanel">Info</div>
 					<div class="pmActions">Actions</div>
 				</div>
-
 			</div>
-			
 		</div>
 
 
