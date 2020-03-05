@@ -216,6 +216,32 @@
 // ====================================================
 // Indicator for the Picture for the album cover
 // ====================================================
-.albumCover {}
-.albumCover::before {}
-.albumCover::after {}
+.albumCover {
+	position: relative;
+}
+
+.albumCover::before {
+	content:'';
+	position: absolute;
+	right:10px;
+	top:-15px;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 0 0 5px;
+	border-color: transparent transparent transparent hsla(0,0,0,0.5);
+}
+
+.albumCover::after {
+	content:'Album Cover';
+	font-size:0.8rem;
+	display: inline-block;
+	background: $panelAlbumCover_bg;
+	color: $panelAlbumCover_txt;
+	box-shadow: $boxShadow;
+	padding: $space_xs $space_s;
+	position: absolute;
+	top: -15px;
+	right: 15px;
+}

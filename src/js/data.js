@@ -1,25 +1,6 @@
 /* jshint esversion: 6 */
 
 
-
-const albums = [
-{
-	id: 1,
-	name : "Many Pictures",
-	photoDisplay : '030515-1_img.png'
-},{
-	id: 3,
-	name : "One Big Portrait",
-	photoDisplay : 'big_portrait.jpg'
-},{
-	id: 4,
-	name : "One Big Landscape",
-	photoDisplay : 'big_landscape.jpg'
-}
-];
-
-
-
 const photos = [
 {
 	id : 1,
@@ -29,7 +10,8 @@ const photos = [
 	weight : 49.4,
 	date : 20030503,
 	width: 490, // in px
-	height: 490 // in px
+	height: 490, // in px
+	isAlbumCover: false
 },
 {
 	id: 5,
@@ -39,7 +21,8 @@ const photos = [
 	weight : 261, 
 	date : 20200305,
 	width: 788, // in px
-	height: 1600 // in px
+	height: 1600, // in px
+	isAlbumCover: true
 },
 {
 	id: 3,
@@ -49,7 +32,8 @@ const photos = [
 	weight : 50.3, 
 	date : 20030516,
 	width: 500, // in px
-	height: 500 // in px
+	height: 500, // in px
+	isAlbumCover: true
 },
 {
 	id: 2,
@@ -59,7 +43,8 @@ const photos = [
 	weight : 72.3, 
 	date : 20030516,
 	width: 500, // in px
-	height: 500 // in px
+	height: 500, // in px
+	isAlbumCover: false
 },
 {
 	id: 4,
@@ -69,7 +54,8 @@ const photos = [
 	weight : 68.8, 
 	date : 20030516,
 	width: 500, // in px
-	height: 500 // in px
+	height: 500, // in px
+	isAlbumCover: false
 },
 {
 	id: 6,
@@ -79,6 +65,7 @@ const photos = [
 	weight : 425, 
 	date : 20200305,
 	width: 1600, // in px
-	height: 778 // in px
+	height: 778, // in px
+	isAlbumCover: true
 }
 ];

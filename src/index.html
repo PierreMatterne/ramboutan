@@ -33,7 +33,7 @@
 			</div>
 
 			<div id="albumContent">
-				<div class="photo" v-for="photo in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center/cover' }">
+				<div class="photo" v-for="photo in photos" v-if="photo.inAlbum === currentAlbum" v-on:click="openPhoto(photo.id)" v-bind:style="{ 'background': 'url( medias/' + photo.filename + ') no-repeat center/cover' }" v-bind:class="{albumCover:photo.isAlbumCover}">
 					<span class="photoName">{{photo.name}}</span>
 				</div>
 			</div>

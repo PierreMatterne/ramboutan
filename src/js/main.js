@@ -20,17 +20,34 @@ var app = new Vue({
 		currentTheme: 'themeLight',
 		errorMsg: "There is no error, for now…",
 		activeSorting: '',
-		// dictionary object
-		currentPhotoInfos: {},		
+		// arrays and object list
+		albums: [],	
+		currentPhotoInfos: {},	
 	},
 
 	// Initialisation
 	created(){
-		this.albums = albums; 
+		// this.albums = albums; 
 		this.photos = photos;
+		this.albums = this.createAlbums();
+		
 	},
 
 	methods: {
+		/**
+		 * Creates an albums data to work with.
+		 *
+		 * @return     {Array}  Returns the title and the cover filename
+		 */
+		createAlbums : function(){
+			let albumines = [];
+			for (let photo in this.photos){
+				if(this.photos[photo].isAlbumCover){
+					albumines.push({name: this.photos[photo].inAlbum, photoDisplay: this.photos[photo].filename});
+				}
+			}
+			return albumines;
+		},
 
 		/**
 		 * The buttons on the photo display panel must be deactivated when leaving the panel.
