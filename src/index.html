@@ -6,7 +6,7 @@
 
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<div class="titleBloc">
-			<h2>{{nbrAlbums}} Albums</h2>
+				<h2>{{nbrAlbums}} Albums</h2>
 			</div>
 			<div id="albumsList">
 				<div v-for="album in albums" class="album" v-on:click="openAlbum(album.name)" v-bind:style="{ 'background': 'url( medias/' + album.photoDisplay + ') no-repeat center/cover' }">		
@@ -42,7 +42,7 @@
 					<i class="fas fa-times"></i>
 				</div>
 
-				<img id="thePicture" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
+				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
 				<div class="pictureMenu">
 					<div class="pmInfos button" v-on:click="displayInfoPanel=!displayInfoPanel">Info</div>
 					<div class="pmActions">Actions</div>
