@@ -55,7 +55,14 @@
 	</transition>
 
 	
-	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Rambutan</h1>
+	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">{{translations[currentLanguage].title}}</h1>
+
+	
+	<div id="langButton">
+		<div v-on:click="currentLanguage=0" v-if="currentLanguage===1">en</div>
+		<div v-on:click="currentLanguage=1" v-if="currentLanguage===0">fr</div>
+	</div>
+
 
 	
 	<div id="themeButton" v-on:click="openModalTheme()">
@@ -65,19 +72,19 @@
 				<div class="modalTitle">Theme</div>		
 				<div v-on:click.stop="setThemeRight('themeExtraLight')">
 					<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> {{translations[currentLanguage].themeXL}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeLight')">
 					<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
+					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> {{translations[currentLanguage].themeL}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeDark')">
 					<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
+					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> {{translations[currentLanguage].themeD}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeExtraDark')">
 					<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> {{translations[currentLanguage].themeXD}}
 				</div>
 			</div>
 		</transition>
@@ -95,7 +102,7 @@
 		
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<div class="titleBloc">
-				<h2>{{nbrAlbums}} Albums</h2>
+				<h2>{{nbrAlbums}} {{translations[currentLanguage].album}}<span v-if="nbrAlbums>1">s</span></h2>
 				<div>&nbsp;</div>
 			</div>
 			<div id="albumsList">
@@ -108,15 +115,16 @@
 		
 		<div id="pagePhotos" v-if="currentPage === 'pagePhotos'">
 			<div class="titleBloc">
-				<h2>Album : {{currentAlbum}}</h2>
+				<h2>{{translations[currentLanguage].album}}<span v-if="currentLanguage===1">&nbsp;</span>: {{currentAlbum}}</h2>
 				<div>
-					{{nbrPhotosInAlbum}} photo<span v-if="nbrPhotosInAlbum > 1">s</span> in this Album
+					{{nbrPhotosInAlbum}} photo<span v-if="nbrPhotosInAlbum > 1">s</span> {{translations[currentLanguage].nbrPhotosInThisAlbum}}
 				</div>
 			</div>
 
 			<div id="sortingPanel">
-				Sort by : 
-				<span v-on:click="sortBy('name')" :class="{active: activeSorting === 'name' }">Name</span><span v-on:click="sortBy('date')" :class="{active: activeSorting === 'date' }">Date</span><span v-on:click="sortBy('weight')" :class="{active: activeSorting === 'weight' }">Filesize</span>
+				
+				{{translations[currentLanguage].sortby}}
+				<span v-on:click="sortBy('name')" :class="{active: activeSorting === 'name' }">{{translations[currentLanguage].sortbyname}}</span><span v-on:click="sortBy('date')" :class="{active: activeSorting === 'date' }">{{translations[currentLanguage].sortbydate}}</span><span v-on:click="sortBy('weight')" :class="{active: activeSorting === 'weight' }">{{translations[currentLanguage].sortbyfilesize}}</span>
 			</div>
 
 			<div id="albumContent">
@@ -137,16 +145,16 @@
 
 						<div id="blocPhotoInfos">
 							<div class="line">
-								<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
+								<span>{{translations[currentLanguage].fileDetailName}} </span><span>{{currentPhotoInfos.filename}}</span>
 							</div>
 							<div class="line">
-								<span>Weight: </span><span>{{currentPhotoInfos.weight}}Ko</span>
+								<span>{{translations[currentLanguage].fileDetailWeight}} </span><span>{{currentPhotoInfos.weight}}Ko</span>
 							</div>
 							<div class="line">
-								<span>Width: </span><span>{{currentPhotoInfos.width}}px</span>
+								<span>{{translations[currentLanguage].fileDetailWidth}} </span><span>{{currentPhotoInfos.width}}px</span>
 							</div>
 							<div class="line">
-								<span>Height: </span><span>{{currentPhotoInfos.height}}px</span>
+								<span>{{translations[currentLanguage].fileDetailHeight}} </span><span>{{currentPhotoInfos.height}}px</span>
 							</div>
 						</div>
 						
@@ -186,7 +194,9 @@
 		
 	</main>
 	<footer v-bind:class="currentTheme" >
-	<span class="invisibleButton" v-on:click="currentPage = 'pageAbout'">Rambutan : an exercice</span>
+	<span class="invisibleButton" v-on:click="currentPage = 'pageAbout'">
+		{{translations[currentLanguage].footer}}
+	</span>
 </footer>
 </div>
 <script src="js/main.min.js"></script>

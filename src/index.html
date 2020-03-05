@@ -8,7 +8,7 @@
 		<!-- ========== Page ALBUMS ========== -->
 		<div id="pageAlbum" v-if="currentPage === 'pageAlbums'">
 			<div class="titleBloc">
-				<h2>{{nbrAlbums}} Albums</h2>
+				<h2>{{nbrAlbums}} {{translations[currentLanguage].album}}<span v-if="nbrAlbums>1">s</span></h2>
 				<div>&nbsp;</div>
 			</div>
 			<div id="albumsList">
@@ -21,15 +21,16 @@
 		<!-- ========== Page PHOTOS ========== -->
 		<div id="pagePhotos" v-if="currentPage === 'pagePhotos'">
 			<div class="titleBloc">
-				<h2>Album : {{currentAlbum}}</h2>
+				<h2>{{translations[currentLanguage].album}}<span v-if="currentLanguage===1">&nbsp;</span>: {{currentAlbum}}</h2>
 				<div>
-					{{nbrPhotosInAlbum}} photo<span v-if="nbrPhotosInAlbum > 1">s</span> in this Album
+					{{nbrPhotosInAlbum}} photo<span v-if="nbrPhotosInAlbum > 1">s</span> {{translations[currentLanguage].nbrPhotosInThisAlbum}}
 				</div>
 			</div>
 
 			<div id="sortingPanel">
-				Sort by : 
-				<span v-on:click="sortBy('name')" :class="{active: activeSorting === 'name' }">Name</span><span v-on:click="sortBy('date')" :class="{active: activeSorting === 'date' }">Date</span><span v-on:click="sortBy('weight')" :class="{active: activeSorting === 'weight' }">Filesize</span>
+				
+				{{translations[currentLanguage].sortby}}
+				<span v-on:click="sortBy('name')" :class="{active: activeSorting === 'name' }">{{translations[currentLanguage].sortbyname}}</span><span v-on:click="sortBy('date')" :class="{active: activeSorting === 'date' }">{{translations[currentLanguage].sortbydate}}</span><span v-on:click="sortBy('weight')" :class="{active: activeSorting === 'weight' }">{{translations[currentLanguage].sortbyfilesize}}</span>
 			</div>
 
 			<div id="albumContent">
@@ -50,16 +51,16 @@
 
 						<div id="blocPhotoInfos">
 							<div class="line">
-								<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
+								<span>{{translations[currentLanguage].fileDetailName}} </span><span>{{currentPhotoInfos.filename}}</span>
 							</div>
 							<div class="line">
-								<span>Weight: </span><span>{{currentPhotoInfos.weight}}Ko</span>
+								<span>{{translations[currentLanguage].fileDetailWeight}} </span><span>{{currentPhotoInfos.weight}}Ko</span>
 							</div>
 							<div class="line">
-								<span>Width: </span><span>{{currentPhotoInfos.width}}px</span>
+								<span>{{translations[currentLanguage].fileDetailWidth}} </span><span>{{currentPhotoInfos.width}}px</span>
 							</div>
 							<div class="line">
-								<span>Height: </span><span>{{currentPhotoInfos.height}}px</span>
+								<span>{{translations[currentLanguage].fileDetailHeight}} </span><span>{{currentPhotoInfos.height}}px</span>
 							</div>
 						</div>
 						<!-- <i class="fas fa-times"></i> -->

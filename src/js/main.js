@@ -20,10 +20,49 @@ var app = new Vue({
 		currentTheme: 'themeLight',
 		errorMsg: "There is no error, for now…",
 		activeSorting: '',
+		// Numbers
+		currentLanguage: 0,
 		// arrays and object list
 		albums: [],	
 		currentPhotoInfos: {},
-		
+		translations:[
+		{
+			title: "Rambutan",
+			themeXL: "Extra Light",
+			themeL: "Light",
+			themeD: "Dark",
+			themeXD: "Extra Dark",
+			footer: "Rambutan : an exercice",
+			album: "Album",
+			nbrPhotosInThisAlbum: "in this Album",
+			sortby: "Sort by:",
+			sortbyname:"Name",
+			sortbydate:"Date",
+			sortbyfilesize:"Filesize",
+			fileDetailName:"Filename",
+			fileDetailWeight:"Weight",
+			fileDetailWidth:"Width",
+			fileDetailHeight:"Height"
+		},
+		{
+			title: "Ramboutan",
+			themeXL: "Extra Lumineux",
+			themeL: "Lumineux",
+			themeD: "Sombre",
+			themeXD: "Extra Sombre",
+			footer: "Ramboutan : un exercice",
+			album: "Album",
+			nbrPhotosInThisAlbum: "dans cet album",
+			sortby: "Trier par :",
+			sortbyname:"Nom",
+			sortbydate:"Date",
+			sortbyfilesize:"Taille de fichier",
+			fileDetailName:"Nom de fichier",
+			fileDetailWeight:"Poids",
+			fileDetailWidth:"Largeur",
+			fileDetailHeight:"Hauteur"
+		}
+		]
 	},
 
 	// Initialisation

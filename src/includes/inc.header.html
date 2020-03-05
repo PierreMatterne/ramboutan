@@ -9,7 +9,14 @@
 	</transition>
 
 	<!-- Title with link to "About" page -->
-	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Rambutan</h1>
+	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">{{translations[currentLanguage].title}}</h1>
+
+	<!-- Menu to change langue -->
+	<div id="langButton">
+		<div v-on:click="currentLanguage=0" v-if="currentLanguage===1">en</div>
+		<div v-on:click="currentLanguage=1" v-if="currentLanguage===0">fr</div>
+	</div>
+
 
 	<!-- Menu to change Theme -->
 	<div id="themeButton" v-on:click="openModalTheme()">
@@ -19,19 +26,19 @@
 				<div class="modalTitle">Theme</div>		
 				<div v-on:click.stop="setThemeRight('themeExtraLight')">
 					<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> {{translations[currentLanguage].themeXL}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeLight')">
 					<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
+					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> {{translations[currentLanguage].themeL}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeDark')">
 					<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
+					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> {{translations[currentLanguage].themeD}}
 				</div>
 				<div v-on:click.stop="setThemeRight('themeExtraDark')">
 					<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
-					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> {{translations[currentLanguage].themeXD}}
 				</div>
 			</div>
 		</transition>

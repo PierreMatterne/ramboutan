@@ -28,7 +28,8 @@ header, footer, .modal {
 }
 
 #backButton,
-#themeButton {
+#themeButton,
+#langButton {
 	line-height:$headerHeight;
 	width:$headerHeight;
 	text-align: center;
@@ -51,12 +52,21 @@ header, footer, .modal {
 }
 
 
-
 // ====================================================
 // Compensation for the header height
 // ====================================================
 main {
 	margin-top: $headerHeight;
+}
+
+
+// ====================================================
+// Button for LANGUAGE choice
+// ====================================================
+#langButton {
+	position: absolute;
+	right:$headerHeight;
+	top: 0;
 }
 
 

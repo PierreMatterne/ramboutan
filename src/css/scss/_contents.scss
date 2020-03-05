@@ -234,13 +234,14 @@
 }
 
 .albumCover::after {
-	content:'Album Cover';
-	font-size:0.8rem;
+	content:'♥';
+	font-size:1.6rem;
+	line-height:0.8rem;
 	display: inline-block;
 	background: $panelAlbumCover_bg;
 	color: $panelAlbumCover_txt;
 	box-shadow: $boxShadow;
-	padding: $space_xs $space_s;
+	padding: $space_xs;
 	position: absolute;
 	top: -15px;
 	right: 15px;

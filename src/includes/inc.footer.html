@@ -1,3 +1,5 @@
 <footer v-bind:class="currentTheme" >
-	<span class="invisibleButton" v-on:click="currentPage = 'pageAbout'">Rambutan : an exercice</span>
+	<span class="invisibleButton" v-on:click="currentPage = 'pageAbout'">
+		{{translations[currentLanguage].footer}}
+	</span>
 </footer>
