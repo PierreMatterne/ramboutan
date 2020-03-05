@@ -41,7 +41,7 @@
 		</div>
 
 		<!-- ========== Page PHOTO ========== -->
-		<div id="mask" v-on:click="unMask" v-bind:class="{active:isMaskActive}">
+		<div id="mask" v-on:click="unMask" v-bind:class="{active:isMaskActive}" v-if="currentPage==='pagePhotos'">
 			<div id="photoDisplay" v-on:click.stop="">
 
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
@@ -67,7 +67,7 @@
 					</div>
 				</div>
 
-				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
+				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name"/>
 				<div class="pictureMenu">
 
 					<i class="fas fa-info icoRight invisibleButton" v-on:click="displayInfoPanel=!displayInfoPanel; isButtonInfoActive=!isButtonInfoActive" data-title="Informations about the file" v-bind:class="{active:isButtonInfoActive}"></i>
