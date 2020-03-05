@@ -35,6 +35,7 @@ var app = new Vue({
 
 		getBackToAlbums : function(){
 			this.currentPage = "pageAlbums";
+			// désactiver les images ouvertes
 		},
 
 		openPhoto : function(anId){

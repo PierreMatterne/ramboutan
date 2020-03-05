@@ -104,6 +104,11 @@
 	padding:$space_xs $space_m;
 }
 
+.button-center {
+	display: inline-block;
+	margin:$space_l auto;
+}
+
 .pmInfos {
 	justify-self:left;
 }

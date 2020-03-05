@@ -1,9 +1,11 @@
 
 <header v-bind:class="currentTheme">
+
 	<transition name="slide-fade">
-		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage === 'pagePhotos'">◄</div>
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">◄</div>
 	</transition>
-	<h1 id="title">Ramboutan</h1>
+
+	<h1 id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
 
 
 

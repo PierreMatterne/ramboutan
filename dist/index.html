@@ -43,10 +43,12 @@
 <div id="app">
 	
 <header v-bind:class="currentTheme">
+
 	<transition name="slide-fade">
-		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage === 'pagePhotos'">◄</div>
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">◄</div>
 	</transition>
-	<h1 id="title">Ramboutan</h1>
+
+	<h1 id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
 
 
 
@@ -110,10 +112,13 @@
 			</div>
 		</div>
 
-
-
-
-
+		<div id="pageAbout" v-if="currentPage === 'pageAbout'">
+			<h2>À propos</h2>
+			<div class="mainText">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias necessitatibus, quos odio rem odit, voluptatem veritatis ipsam aliquam quia laudantium saepe! Praesentium quo enim expedita, nobis nesciunt, deserunt aliquam qui.
+			</div>
+			<div class="button button-center" v-on:click="currentPage = 'pageAlbums'">Back to Albums</div>
+		</div>
 
 		
 	</main>
