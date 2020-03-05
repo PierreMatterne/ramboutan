@@ -1,4 +1,6 @@
-
+// ====================================================
+// The ALBUMS & PHOTOS page
+// ====================================================
 #albumsList,
 #albumContent {
 	display: grid;
@@ -34,7 +36,9 @@
 	background: hsla(0,0,0,0.5);
 }
 
-
+// ====================================================
+// PHOTO : The mask that appears when photos are displayed
+// ====================================================
 
 #mask {
 	position: absolute;
@@ -122,6 +126,10 @@
 	pointer-events: auto;
 }
 
+
+// ====================================================
+// Panel to display error messages.
+// ====================================================
 #errorMessage {
 	position: absolute;
 	top:$space_xl;

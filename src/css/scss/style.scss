@@ -1,17 +1,23 @@
 @import "vars"; // variables to use through the site.
 @import "resets"; // reset some of the default styles.
 
+// ====================================================
 // STRUCTURE
+// ====================================================
 @import "layout"; // global layout of the site. "Body" 
 @import "header";
 @import "footer";
 @import "aside";
 
+// ====================================================
 // LOOK & FEEL
+// ====================================================
 @import "headings"; // all about headings
 @import "ui"; // describe buttons, line, stuff, tidbits, arrows… "decoratives" elements.
 @import "forms";
 @import "contents"; // all relative to user content (in case of a blog e.g.)
 
+// ====================================================
 // DEV ONLY
+// ====================================================
 @import "temp"; // temporary css styles, to test, debug or to try before use. Must be empty at the end.

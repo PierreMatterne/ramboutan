@@ -2,14 +2,14 @@
 
 
 
-
+// Start of the whole vue app
 var app = new Vue({
 	el: '#app',
 	data: {
 		message: 'You loaded this page on ' + new Date().toLocaleString(),
 		currentPage : "pageAlbums",
 		currentAlbum : "",
-		isMaskActive : false, // utilisée ?
+		// isMaskActive : false, 
 		currentPhotoUrl : '',
 		currentTheme : 'themeLight',
 		modalThemeOpened: false,
@@ -43,11 +43,9 @@ var app = new Vue({
 		openPhoto : function(anId){
 			document.getElementById('mask').classList.add('active');
 			// Remplaçable par un v-if ou v-show ? avec transition ?
-			this.currentPhotoUrl = getUrlFromId(anId) ;
+			// this.currentPhotoUrl = getUrlFromId(anId) ;
 			let	width = window.innerWidth || document.body.clientWidth;
 			let height = window.innerHeight || document.body.clientHeight;
-
-			console.log(width , height);
 
 			document.getElementById('thePicture').style.maxWidth=width-30 + 'px';
 			document.getElementById('thePicture').style.maxHeight=height-200 + 'px';
@@ -70,14 +68,20 @@ var app = new Vue({
 	},
 
 	computed: {
-		getBackground(){
-			return 'background: url('+this.currentPhotoUrl+') no-repeat center/contain;';
-		},
 		nbrAlbums(){
 			return this.albums.length;
-		}		
-	}
+		},
+		nbrPhotosInAlbum(){
+			let nbrPhotos = 0;
+			for (let photo of app.photos){
+				if (photo.inAlbum === this.currentAlbum){ 
+					nbrPhotos += 1;
+				}
+			}
+			return nbrPhotos;
+		}
 
+	}
 }); 
 
 

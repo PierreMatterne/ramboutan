@@ -1,9 +1,7 @@
 // Le H1 se trouve dans le HEADER et sert de titre
 h1 {}
 
-h2 {
-	margin-bottom:$space_l;
-}
+h2 {}
 
 h3 {}
 
@@ -12,3 +10,7 @@ h4 {}
 h5 {}
 
 h6 {}
+
+.titleBloc {
+	margin-bottom:$space_l;
+}
