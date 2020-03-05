@@ -10,6 +10,9 @@ var app = new Vue({
 		modalThemeOpened: false,
 		displayInfoPanel: false,
 		isThereError: false,
+		isButtonInfoActive:false,
+		isButtonDlActive:false,
+		isButtonDeleteActive:false,
 		// String
 		currentPage: "pageAlbums",
 		currentAlbum: "",
@@ -26,6 +29,7 @@ var app = new Vue({
 	},
 
 	methods: {
+
 		/**
 		 * Change the theme and close the modale
 		 *

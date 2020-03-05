@@ -110,29 +110,10 @@
 	transition: background-color $transition;
 }
 
-.pictureMenu i:hover {
+.pictureMenu i:hover,
+.pictureMenu i.active {
 	background: $iconTileHover;
 }
-
-
-// ==================================
-// Sert encore dans un seul cas : la page about.
-// // Utiliser plutôt background: $iconTile;
-.button {
-	border:1px solid #fff;
-	border-radius:4px;
-	cursor: pointer;
-	padding:$space_xs $space_m;
-	background: #f00;
-}
-
-.button-center {
-	display: inline-block;
-	margin:$space_l auto;
-}
-// ==================================
-
-
 
 .icoRight {
 	justify-self:left;
@@ -172,4 +153,26 @@
 #errorMessage p {
 	margin:0;
 	padding:0;
+}
+
+
+// ====================================================
+// Page "ABOUT"
+// ====================================================
+.mainText {
+	margin: $space_l 0;
+	line-height:1.5rem;
+}
+
+.button	{
+	display: inline-block;
+	background: $iconTile;
+	transition: background-color $transition;
+	cursor: pointer;
+	line-height:1.75em;
+	padding:0 $space_m;
+	text-align: center;
+}
+.button:hover {
+	background: $iconTileHover;
 }

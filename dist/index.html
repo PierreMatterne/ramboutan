@@ -119,6 +119,7 @@
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-on:click.stop="">
 
+				
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
 					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
 					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
@@ -131,11 +132,11 @@
 				<img id="thePhoto" v-bind:src="'medias/' + currentPhotoInfos.filename" v-bind:alt="currentPhotoInfos.name" />
 				<div class="pictureMenu">
 
-					<i class="fas fa-info icoRight invisibleButton" v-on:click="displayInfoPanel=!displayInfoPanel"></i>
+					<i class="fas fa-info icoRight invisibleButton" v-on:click="displayInfoPanel=!displayInfoPanel; isButtonInfoActive=!isButtonInfoActive" data-title="Informations about the file" v-bind:class="{active:isButtonInfoActive}"></i>
 
 					<div class="icoLeft">
-						<i class="far fa-folder-open "></i>
-						<i class="fas fa-trash-alt"></i>
+						<i class="far fa-folder-open" data-title="Download / Upload ?"></i>
+						<i class="fas fa-trash-alt" data-title="Delete this picture"></i>
 					</div>
 
 
@@ -150,7 +151,10 @@
 			<div class="mainText">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias necessitatibus, quos odio rem odit, voluptatem veritatis ipsam aliquam quia laudantium saepe! Praesentium quo enim expedita, nobis nesciunt, deserunt aliquam qui.
 			</div>
+			
+			
 			<div class="button button-center" v-on:click="currentPage = 'pageAlbums'">Back to Albums</div>
+			
 
 		</div>
 

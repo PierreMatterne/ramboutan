@@ -13,3 +13,43 @@
 	transform: translateX(10px);
 	opacity: 0;
 }
+
+
+
+
+
+
+
+
+// ====================================================
+// TOOLTIPS
+// XXXX : actuellement, soucis de débordement;
+// Utiliser un overflow: hidden ?;
+// ====================================================
+/*
+[data-title] {
+	// position: relative;
+}
+
+[data-title]:after {
+	font-size:1rem;
+	font-family: 'roboto condensed', 'roboto', sans-serif;
+	font-weight:normal;
+	padding:$space-xs $space-s;
+	content: attr(data-title);
+	position: absolute;
+	top: -50%;
+	left: 110%;
+	white-space: nowrap;
+	opacity: 0;
+	z-index: 99999;
+	visibility: hidden;
+}
+
+[data-title]:hover:after {
+	opacity: 1;
+	transition: opacity $transition 0.5s;
+	visibility: visible;
+}
+*/
+
