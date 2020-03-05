@@ -8,8 +8,8 @@ var app = new Vue({
 	data: {
 		message: 'You loaded this page on ' + new Date().toLocaleString(),
 		currentPage : "pageAlbums",
-		currentAlbum : "xyz",
-		isMaskActive : false,
+		currentAlbum : "",
+		isMaskActive : false, // utilisée ?
 		currentPhotoUrl : '',
 		currentTheme : 'themeLight',
 		modalThemeOpened: false,

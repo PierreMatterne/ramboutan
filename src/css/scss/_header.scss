@@ -5,7 +5,7 @@ header {
 	z-index:100;
 }
 
-header, footer {
+header, footer, .modal {
 
 	&.themeExtraLight {
 		background: $themeExtraLight_bg;
@@ -49,13 +49,48 @@ header, footer {
 	font-size:1.5rem;
 }
 
-#themeButton {
-	position: absolute;
-	right:0; top:0;
-	height:100%;
+
+
+// ====================================================
+// Compensation for the header height
+// ====================================================
+main {
+	margin-top: $headerHeight;
 }
 
-// compensation for the header height
-main {
-	margin-top:$headerHeight;
+
+// ====================================================
+// Box for THEME choice
+// ====================================================
+#themeButton {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
 }
+
+#modalTheme i {
+	display: inline-block;
+	padding: 0 $space_s;
+}
+
+#modalTheme {
+	position: absolute;
+	top: 20px; 
+	right: 20px;
+	width: 200px;
+	box-shadow: $boxShadow;
+	font-size: 1rem;
+	line-height: $minTouch;
+	border-radius: 4px;
+	border: 1px solid $modalBorder;
+	text-align: left;
+}
+
+.modalTitle {
+	border-bottom: 1px solid #000;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+}
+
