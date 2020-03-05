@@ -121,3 +121,26 @@
 	opacity:1;
 	pointer-events: auto;
 }
+
+#errorMessage {
+	position: absolute;
+	top:$space_xl;
+	left:50%; 
+	width:90%;
+	transform: translateX(-50%);
+	background: $errorBoxBg;
+	color: $errorBoxTxt;
+	padding:$space_m;
+	display: grid; 
+	grid-template-columns: 3em auto;
+}
+
+#errorMessage i {
+	font-size:1.5rem;
+	justify-self:center;
+	align-self: start;
+}
+#errorMessage p {
+	margin:0;
+	padding:0;
+}

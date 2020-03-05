@@ -1,17 +1,20 @@
 
 <header v-bind:class="currentTheme">
 
+	<!-- Back button -->
 	<transition name="slide-fade">
-		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">◄</div>
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">
+			<i class="fas fa-arrow-left"></i>
+		</div>
 	</transition>
 
-	<h1 id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
+	<!-- Title with link to "About" page -->
+	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
 
-
-
+	<!-- Menu to change Theme -->
 	<div id="themeButton" v-on:click="openModalTheme()">
 
-		T
+		<i class="fas fa-cog"></i>
 		
 		<transition name="slide-fade">
 			<div id="modalTheme" v-show="modalThemeOpened===true">

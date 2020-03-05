@@ -24,18 +24,25 @@
 
 		<div id="mask" v-on:click="unMask">
 			<div id="photoDisplay" v-on:click.stop="">
+
 				<div id="displayInfoPanel" v-show="displayInfoPanel === true" v-on:click="displayInfoPanel = !displayInfoPanel">
 					<span>Title: </span><span>{{currentPhotoInfos.name}}</span>
 					<span>Filename: </span><span>{{currentPhotoInfos.filename}}</span>
 					<span>Weight: </span><span>{{currentPhotoInfos.weight}}</span>
 					<span>Width: </span><span>{{currentPhotoInfos.width}}</span>
 					<span>Height: </span><span>{{currentPhotoInfos.height}}</span>
+					<i class="fas fa-times"></i>
 				</div>
 
 				<img id="thePicture" v-bind:src="currentPhotoUrl" v-bind:alt="currentPhotoInfos.name" />
 				<div class="pictureMenu">
 					<div class="pmInfos button" v-on:click="displayInfoPanel=!displayInfoPanel">Info</div>
 					<div class="pmActions">Actions</div>
+
+					<i class="fas fa-info"></i>
+					<i class="far fa-folder-open"></i>
+					<i class="fas fa-trash-alt"></i>
+
 				</div>
 			</div>
 		</div>
@@ -46,6 +53,12 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias necessitatibus, quos odio rem odit, voluptatem veritatis ipsam aliquam quia laudantium saepe! Praesentium quo enim expedita, nobis nesciunt, deserunt aliquam qui.
 			</div>
 			<div class="button button-center" v-on:click="currentPage = 'pageAlbums'">Back to Albums</div>
+
+		</div>
+
+		<div id="errorMessage" v-if="isThereError === true">
+			<i class="far fa-frown"></i>
+			<p>{{errorMsg}}</p>
 		</div>
 
 		<!-- ========================================== -->

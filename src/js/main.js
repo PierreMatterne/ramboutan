@@ -9,12 +9,14 @@ var app = new Vue({
 		message: 'You loaded this page on ' + new Date().toLocaleString(),
 		currentPage : "pageAlbums",
 		currentAlbum : "xyz",
-		maskActive : false,
+		isMaskActive : false,
 		currentPhotoUrl : '',
 		currentTheme : 'themeLight',
 		modalThemeOpened: false,
 		displayInfoPanel: false,
-		currentPhotoInfos: {}
+		currentPhotoInfos: {},
+		isThereError: false,
+		errorMsg : "There is no error, for now…",
 	},
 
 	created(){
@@ -63,6 +65,8 @@ var app = new Vue({
 		openModalTheme : function(){
 			this.modalThemeOpened = true;
 		}
+
+
 	},
 
 	computed: {
