@@ -1,43 +1,43 @@
 
-	<header v-bind:class="currentTheme">
+<header v-bind:class="currentTheme">
 
-		<!-- Back button -->
+	<!-- Back button -->
+	<transition name="slide-fade">
+		<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">
+			<i class="fas fa-arrow-left"></i>
+		</div>
+	</transition>
+
+	<!-- Title with link to "About" page -->
+	<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Rambutan</h1>
+
+	<!-- Menu to change Theme -->
+	<div id="themeButton" v-on:click="openModalTheme()">
+		<i class="fas fa-cog"></i>
 		<transition name="slide-fade">
-			<div id="backButton" v-on:click="getBackToAlbums" v-show="currentPage != 'pageAlbums'">
-				<i class="fas fa-arrow-left"></i>
+			<div class="modal" id="modalTheme" v-show="modalThemeOpened===true" v-bind:class="currentTheme">
+				<div class="modalTitle">Theme</div>		
+				<div v-on:click.stop="setThemeRight('themeExtraLight')">
+					<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
+				</div>
+				<div v-on:click.stop="setThemeRight('themeLight')">
+					<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
+					<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
+				</div>
+				<div v-on:click.stop="setThemeRight('themeDark')">
+					<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
+					<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
+				</div>
+				<div v-on:click.stop="setThemeRight('themeExtraDark')">
+					<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
+					<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
+				</div>
 			</div>
 		</transition>
-
-		<!-- Title with link to "About" page -->
-		<h1 class="invisibleButton" id="title" v-on:click="currentPage = 'pageAbout'">Ramboutan</h1>
-
-		<!-- Menu to change Theme -->
-		<div id="themeButton" v-on:click="openModalTheme()">
-			<i class="fas fa-cog"></i>
-			<transition name="slide-fade">
-				<div class="modal" id="modalTheme" v-show="modalThemeOpened===true" v-bind:class="currentTheme">
-					<div class="modalTitle">Theme</div>		
-					<div v-on:click.stop="setThemeRight('themeExtraLight')">
-						<i class="fas fa-circle" style="color:#d6d6d6" v-if="currentTheme != 'themeExtraLight'"></i>
-						<i class="far fa-circle" v-if="currentTheme === 'themeExtraLight'"></i> Extra Light
-					</div>
-					<div v-on:click.stop="setThemeRight('themeLight')">
-						<i class="fas fa-circle" style="color:#b8b8b8" v-if="currentTheme != 'themeLight'"></i>
-						<i class="far fa-circle" v-if="currentTheme === 'themeLight'"></i> Light
-					</div>
-					<div v-on:click.stop="setThemeRight('themeDark')">
-						<i class="fas fa-circle" style="color:#535353" v-if="currentTheme != 'themeDark'"></i>
-						<i class="far fa-circle" v-if="currentTheme === 'themeDark'"></i> Dark
-					</div>
-					<div v-on:click.stop="setThemeRight('themeExtraDark')">
-						<i class="fas fa-circle" style="color:#343434" v-if="currentTheme != 'themeExtraDark'"></i>
-						<i class="far fa-circle" v-if="currentTheme === 'themeExtraDark'"></i> Extra Dark
-					</div>
-				</div>
-			</transition>
-		</div>
+	</div>
 
 
 
 
-	</header>
+</header>

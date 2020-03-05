@@ -22,7 +22,8 @@ var app = new Vue({
 		activeSorting: '',
 		// arrays and object list
 		albums: [],	
-		currentPhotoInfos: {},	
+		currentPhotoInfos: {},
+		
 	},
 
 	// Initialisation
@@ -39,15 +40,15 @@ var app = new Vue({
 		 *
 		 * @return     {Array}  Returns the title and the cover filename
 		 */
-		createAlbums : function(){
-			let albumines = [];
-			for (let photo in this.photos){
-				if(this.photos[photo].isAlbumCover){
-					albumines.push({name: this.photos[photo].inAlbum, photoDisplay: this.photos[photo].filename});
-				}
-			}
-			return albumines;
-		},
+		 createAlbums : function(){
+		 	let albumines = [];
+		 	for (let photo in this.photos){
+		 		if(this.photos[photo].isAlbumCover){
+		 			albumines.push({name: this.photos[photo].inAlbum, photoDisplay: this.photos[photo].filename});
+		 		}
+		 	}
+		 	return albumines;
+		 },
 
 		/**
 		 * The buttons on the photo display panel must be deactivated when leaving the panel.
