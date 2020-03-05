@@ -6,6 +6,10 @@ h2 {}
 // title of the photo in display
 h3 {
 	text-align: center;
+	border-bottom:2px solid $contrastColor;
+	margin: $space_s auto $space_m;
+	padding: $space_m 0;
+	font-size:1.4rem;
 }
 
 h4 {}

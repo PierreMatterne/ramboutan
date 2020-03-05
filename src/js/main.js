@@ -19,6 +19,7 @@ var app = new Vue({
 		currentAlbum: "",
 		currentTheme: 'themeLight',
 		errorMsg: "There is no error, for now…",
+		activeSorting: '',
 		// dictionary object
 		currentPhotoInfos: {},		
 	},
@@ -30,6 +31,39 @@ var app = new Vue({
 	},
 
 	methods: {
+
+		/**
+		 * The buttons on the photo display panel must be deactivated when leaving the panel.
+		 */
+		 inactiveAllButtons : function(){
+		 	this.isButtonInfoActive = false;
+		 	this.isButtonDlActive = false;
+		 	this.isButtonDeleteActive = false;
+		 },
+
+		/**
+		 * sort on key values
+		 *
+		 * @param      {String}  key The key to be examined
+		 * @return     {number}  The series of numbers to make the sorting
+		 */
+		 keysrt : function(key){	
+		 	return function(a,b){
+		 		if (a[key] < b[key]) return -1;
+		 		else if (a[key] > b[key]) return 0;
+		 	};
+		 },
+
+		/**
+		 * Engage the sorting function and refresh the app
+		 *
+		 * @param {String} criterion The criterion for the sorting
+		 */
+		 sortBy: function(criterion){
+		 	this.activeSorting = criterion;
+		 	this.photos.sort(this.keysrt(criterion));
+			app.$forceUpdate(); // refresh page
+		},
 
 		/**
 		 * Change the theme and close the modale
@@ -56,9 +90,9 @@ var app = new Vue({
  		*/
  		getBackToAlbums: function(){
  			this.currentPage = "pageAlbums";
-			// désactiver les images ouvertes
-			this.currentPhotoInfos = {};
-		},
+ 			this.isMaskActive = false;
+ 			this.currentPhotoInfos = {};
+ 		},
 
 		/**
 		 * Opens and display a photo.
@@ -83,6 +117,7 @@ var app = new Vue({
 		 unMask: function(){
 		 	this.isMaskActive = false;
 		 	this.displayInfoPanel = false;
+		 	this.inactiveAllButtons();
 		 },
 
 		/**
@@ -134,4 +169,3 @@ var app = new Vue({
 
  		}
  	}); 
-

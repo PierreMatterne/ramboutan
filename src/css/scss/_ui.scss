@@ -3,10 +3,17 @@
 	cursor:pointer;
 }
 
-// Separator
-hr {
-	background: #fc0;
-	border:none;
-	margin: $space_m auto $space_l;
-	width:100%;
+// ====================================================
+// TRANSITION slide-fade 
+// ====================================================
+.slide-fade-enter-active {
+	transition: all .3s ease-in-out;
+}
+.slide-fade-leave-active {
+	// transition: all .3s ease-in-out;
+}
+.slide-fade-enter, .slide-fade-leave-to
+{
+	transform: translateX(10px);
+	opacity: 0;
 }

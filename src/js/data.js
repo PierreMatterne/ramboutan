@@ -6,17 +6,14 @@ const albums = [
 {
 	id: 1,
 	name : "Many Pictures",
-	sortedBy : "date",
 	photoDisplay : '030515-1_img.png'
 },{
 	id: 3,
 	name : "One Big Portrait",
-	sortedBy : "name",
 	photoDisplay : 'big_portrait.jpg'
 },{
 	id: 4,
 	name : "One Big Landscape",
-	sortedBy : "name",
 	photoDisplay : 'big_landscape.jpg'
 }
 ];
@@ -35,14 +32,14 @@ const photos = [
 	height: 490 // in px
 },
 {
-	id: 2,
-	filename : "030516-1_img.png",
-	inAlbum : "Many Pictures",
-	name: "",
-	weight : 72.3, 
-	date : 20030516,
-	width: 500, // in px
-	height: 500 // in px
+	id: 5,
+	filename : "big_portrait.jpg",
+	inAlbum : "One Big Portrait",
+	name: "Two chairs in a church",
+	weight : 261, 
+	date : 20200305,
+	width: 788, // in px
+	height: 1600 // in px
 },
 {
 	id: 3,
@@ -50,6 +47,16 @@ const photos = [
 	inAlbum : "Many Pictures",
 	name: "Bestiole 03",
 	weight : 50.3, 
+	date : 20030516,
+	width: 500, // in px
+	height: 500 // in px
+},
+{
+	id: 2,
+	filename : "030516-1_img.png",
+	inAlbum : "Many Pictures",
+	name: "",
+	weight : 72.3, 
 	date : 20030516,
 	width: 500, // in px
 	height: 500 // in px
@@ -63,16 +70,6 @@ const photos = [
 	date : 20030516,
 	width: 500, // in px
 	height: 500 // in px
-},
-{
-	id: 5,
-	filename : "big_portrait.jpg",
-	inAlbum : "One Big Portrait",
-	name: "Two chairs in a church",
-	weight : 261, 
-	date : 20200305,
-	width: 788, // in px
-	height: 1600 // in px
 },
 {
 	id: 6,

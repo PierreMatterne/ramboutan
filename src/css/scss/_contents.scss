@@ -19,7 +19,7 @@
 .album,
 .photo {
 	display: inline-block;
-	border:4px solid #fff;
+	border:4px solid $c_white;
 	padding:4px;
 	width:$photoWidth;
 	height:$photoHeight;
@@ -34,9 +34,29 @@
 	width:100%;
 	padding:$space_xs;
 	bottom:0;
-	color:#fff;
-	background: hsla(0,0,0,0.5);
+	color:$c_white;
+	background: $maskNames;
 }
+
+#sortingPanel {
+	padding:$space_m 0;
+}
+
+#sortingPanel span {
+	display: inline-block;
+	padding: $space_xs $space_s;
+	cursor: pointer;
+	font-weight:bold;
+	color: $mediumDarkTransparence;
+}
+
+#sortingPanel span.active {
+	color: $darkTransparence;
+}
+
+#sortingPanel span + span {
+	border-left:1px solid $spanSeparators;
+} 
 
 // ====================================================
 // #mask that appears when photos are displayed
@@ -52,7 +72,7 @@
 }
 
 #mask.active {
-	background: hsla(0,0,0,0.6);
+	background: $maskPage;
 	pointer-events: auto;
 }
 
@@ -63,7 +83,7 @@
 #displayInfoPanel {
 	background: $maskInfos;
 	padding:1em;
-	color:#fff;
+	color:$c_white;
 	position: absolute;
 	width:100%;
 	height:100%;
@@ -108,7 +128,7 @@
 }
 
 .pictureMenu {
-	color:#fff;
+	color:$c_white;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	position: absolute;
@@ -181,13 +201,21 @@
 
 .button	{
 	display: inline-block;
-	background: $iconTile;
+	background: $button_bg;
 	transition: background-color $transition;
 	cursor: pointer;
-	line-height:1.75em;
-	padding:0 $space_m;
+	line-height: $space_l;
+	padding:$space_xs $space_l;
 	text-align: center;
 }
 .button:hover {
-	background: $iconTileHover;
+	background: $button_bg_hover;
 }
+
+
+// ====================================================
+// Indicator for the Picture for the album cover
+// ====================================================
+.albumCover {}
+.albumCover::before {}
+.albumCover::after {}
